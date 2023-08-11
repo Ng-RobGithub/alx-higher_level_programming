@@ -2,13 +2,14 @@
 import sys
 
 if __name__ == "__main__":
-    argc = len(sys.argv) - 1
-    argv = sys.argv[1:]
+    size = len(sys.argv) - 1
 
-    print("{:d} argument{}{}{}".format(argc,
-        's' if argc != 1 else '',
-        '' if argc == 0 else ':',
-        '' if argc == 0 else '\n'))
+    if size == 0:
+        print("0 arguments.")
+    elif size == 1:
+        print("1 argument:")
+    else:
+        print("{:d} arguments:".format(size))
 
-    for i, arg in enumerate(argv, start=1):
-        print("{:d}: {:s}".format(i, arg))
+        for i in range(size):
+            print("{:d}: {:s}".format(i + 1, sys.argv[i + 1]))
