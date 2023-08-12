@@ -1,15 +1,8 @@
 #!/usr/bin/python3
-import builtins
-
-def print_names(module):
-    names = [name for name in dir(module) if not name.startswith('__')]
-    names.sort()  # Sort names alphabetically
-    for name in names:
-        print(name)
-
-        if __name__ == "__main__":
-            try:
-                import hidden_4  # Import the module
-                print_names(hidden_4)  # Print the names
-            except ImportError:
-                print("Module 'hidden_4' not found.")
+if __name__ == "__main__":
+    import hidden_4
+    # Print sorted name from directory
+    for name in sorted(dir(hidden_4)):
+        # print only names that do not start with __
+        if name[:2] != '__':
+            print("{}".format(name))
