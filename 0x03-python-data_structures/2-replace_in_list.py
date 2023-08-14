@@ -1,9 +1,5 @@
-#!/usr/bin/env python3
-
+#!/usr/bin/python3
 def replace_in_list(my_list, idx, element):
-    if idx >= 0 and idx < len(my_list):
-        new_list = my_list.copy()
-        new_list[idx] = element
-        return (new_list)
-    else:
+    if 0 <= idx < len(my_list):
+        my_list[idx] = element
         return (my_list)
