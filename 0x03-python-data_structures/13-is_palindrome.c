@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+typedef struct listint_s
+{
+	int n;
+	struct listint_s *next;
+} listint_t;
+
 /**
  * is_palindrome - Checks if a singly linked list is a palindrome.
  * @head: Pointer to the head of the linked list.
