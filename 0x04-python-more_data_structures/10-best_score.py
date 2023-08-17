@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
     if not a_dictionary:
-        return None
+        return (None)
 
     max_score = float('-inf')
     best_key = None
@@ -11,4 +11,4 @@ def best_score(a_dictionary):
             max_score = value
             best_key = key
 
-            return best_key
+            return (best_key)
