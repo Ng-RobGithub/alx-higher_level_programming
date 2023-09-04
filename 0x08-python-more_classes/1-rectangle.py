@@ -5,12 +5,9 @@ class Rectangle:
     """Represent a rectangle."""
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle. """
+        """Initialize a new Rectangle.
 
-        self.__width = 0  # Private instance attribute for width
-        self.__height = 0  # Private instance attribute for height
-
-        """ Use the setters to validate and set width and height
+        Use the setters to validate and set width and height
         """
         self.width = width
         self.height = height
