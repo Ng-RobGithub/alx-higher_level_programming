@@ -12,9 +12,6 @@ class Rectangle:
         height (int): The height of the new rectangle.
         """
 
-        self.__width = 0  # Private instance attribute for width
-        self.__height = 0  # Private instance attribute for height
-
         self.width = width
         self.height = height
 
