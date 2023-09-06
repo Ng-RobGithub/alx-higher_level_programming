@@ -6,4 +6,3 @@ lass LockedClass:
         self.__dict__[name] = value
         else:
         raise AttributeError("'LockedClass' object has no attribute '{}'".format(name))
-
