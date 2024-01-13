@@ -14,5 +14,6 @@ if __name__ == "__main__":
     rows = cur.fetchall()
     for row in rows:
         print(row)
+    """ Close cursor and database connection """
     cur.close()
     db.close()
