@@ -5,12 +5,18 @@ import sys
 
 
 if __name__ == "__main__":
+    # Connect to MySQL server
     db = MySQLdb.connect(host="localhost", user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states")
-    rows = cur.fetchall()
+     # Create a cursor object to execute SQL queries
+    cursor = db.cursor()
+    # Execute the SQL query
+    cursor.execute("SELECT * FROM states")
+    # Fetch all rows
+    rows = cursor.fetchall()
+    # Print the results
     for row in rows:
         print(row)
+    # Close cursor and database connection
     cur.close()
     db.close()
