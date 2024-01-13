@@ -9,11 +9,11 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3], port=3306)
      # Create a cursor object to execute SQL queries
-    cursor = db.cursor()
+    cur = db.cursor()
     # Execute the SQL query
-    cursor.execute("SELECT * FROM states")
+    cur.execute("SELECT * FROM states")
     # Fetch all rows
-    rows = cursor.fetchall()
+    rows = cur.fetchall()
     # Print the results
     for row in rows:
         print(row)
