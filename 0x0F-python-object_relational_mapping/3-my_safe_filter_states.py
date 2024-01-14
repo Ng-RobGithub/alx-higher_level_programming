@@ -8,6 +8,7 @@ if __name__ == "__main__":
     """ Connect to MySQL server """    
     db = MySQLdb.connect(host="localhost", user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    """ Create a cursor object to interact with the database """
     cur = db.cursor()
     match = sys.argv[4]
     cur.execute("SELECT * FROM states WHERE name LIKE %s", (match, ))
