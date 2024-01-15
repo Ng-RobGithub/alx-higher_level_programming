@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" lists all the State object with the name passed as argument from the database """
+""" lists all the State object with the name passed as argument from the database
+"""
 import sys
 from relationship_state import Base, State
 from relationship_city import City
