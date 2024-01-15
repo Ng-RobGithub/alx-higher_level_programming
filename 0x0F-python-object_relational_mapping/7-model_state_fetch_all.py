@@ -8,9 +8,13 @@ from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
+    """ Set up connection to the database """
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    """ Bind the database """
     Base.metadata.create_all(engine)
+
+    """ Create a session to interact with the database """
     Session = sessionmaker(bind=engine)
     session = Session()
     for instance in session.query(State).order_by(State.id):
