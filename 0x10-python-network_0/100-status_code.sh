@@ -1,13 +1,6 @@
-#!/usr/bin/python3
+#!/bin/bash
 
-# Send a request to the URL passed as argument and display only the status code
+# Sends a request to a URL passed as an argument and displays only the status code of the response
 
-# Send the request and save the response headers to a temporary file
-curl -s -o /tmp/response_headers.txt -w "%{http_code}" "$1"
-
-# Extract and display the status code from the response headers
-status_code=$(cat /tmp/response_headers.txt)
-echo "$status_code"
-
-# Clean up the temporary file
-rm /tmp/response_headers.txt
+# Send a GET request and display the status code only
+curl -so /dev/null -w '%{http_code}' "$1"

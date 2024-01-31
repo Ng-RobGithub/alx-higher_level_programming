@@ -1,13 +1,5 @@
-#!/usr/bin/python3
+#!/bin/bash
+# Sends a GET request to the URL passed as the first argument, with a custom header, and displays the body of the response
 
-# Check if URL argument is provided
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <URL>"
-    exit 1
-fi
-
-# Store the URL argument
-url=$1
-
-# Send a GET request to the URL with the specified header
-curl -s -H "X-School-User-Id: 98" "$url"
+# Send a GET request with custom header and display the response body
+curl -sH "X-School-User-Id: 98" "$1"

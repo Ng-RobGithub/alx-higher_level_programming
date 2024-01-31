@@ -1,27 +1,29 @@
-#!/usr/bin/python3
+#!/bin/bash
 
-# Send a JSON POST request to a URL passed as the first argument,
-# using the contents of a file passed as the second argument,
-# and display the body of the response
+# Sends a JSON POST request to a URL passed as the first argument
+# Sends the contents of a file as the body of the request
+# Displays the body of the response
 
-# Check if the correct number of arguments is provided
-if [ $# -ne 2 ]; then
-    echo "Usage: $0 <URL> <JSON_FILE>"
+# Check if the number of arguments is correct
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 URL JSON_FILE"
     exit 1
 fi
 
 # Check if the JSON file exists
 if [ ! -f "$2" ]; then
-    echo "Error: JSON file '$2' not found"
+    echo "File '$2' not found"
     exit 1
 fi
 
-# Send the POST request with the contents of the JSON file in the body
-response=$(curl -s -X POST -H "Content-Type: application/json" -d "@$2" "$1")
+# Read the JSON file content
+json_content=$(cat "$2")
 
-# Check if the response contains "Valid JSON"
-if [[ $response == *"Valid JSON"* ]]; then
-    echo "Valid JSON"
-else
+# Validate JSON syntax
+if ! jq -e . >/dev/null 2>&1 <<<"$json_content"; then
     echo "Not a valid JSON"
+    exit 1
 fi
+
+# Send a POST request with JSON content and display the response body
+curl -s -X POST -H "Content-Type: application/json" -d @"$2" "$1"

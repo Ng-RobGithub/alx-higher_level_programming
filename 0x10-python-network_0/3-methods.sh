@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/bin/bash
 
 # Check if URL argument is provided
 if [ $# -ne 1 ]; then
